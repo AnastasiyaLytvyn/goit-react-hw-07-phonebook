@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { getContacts } from 'redux/contacts/contactsSelector';
-import { addContacts } from 'redux/contacts/contactsSlice';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 import { Button, Form, Input, Label } from './ContactForm.styled';
 
 export const ContactForm = () => {
@@ -10,7 +10,7 @@ export const ContactForm = () => {
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handleChange = ({ target: { name, value } }) => {
     name === 'name' ? setName(value) : setNumber(value);
@@ -23,7 +23,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContacts({ id: nanoid(), name, number }));
+    dispatch(addContact({ id: nanoid(), name, number }));
     setName('');
     setNumber('');
   };

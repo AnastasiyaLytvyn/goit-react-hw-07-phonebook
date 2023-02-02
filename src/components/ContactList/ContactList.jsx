@@ -2,21 +2,20 @@ import PropTypes from 'prop-types';
 import { ContactItem } from 'components/ContacItem/ContactItem';
 import { List } from './ContactList.styled';
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/contacts/contactsSelector';
-import { getFilter } from 'redux/filter/filterSelector';
+import { selectContacts, selectFilter } from 'redux/selectors';
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
   return (
     <List>
-      {filteredContacts.map(({ id, name, number }) => (
-        <ContactItem key={id} id={id} name={name} number={number} />
-      ))}
+      {filteredContacts.map(({ id, name, number }) => {
+        return <ContactItem key={id} id={id} name={name} number={number} />;
+      })}
     </List>
   );
 };
