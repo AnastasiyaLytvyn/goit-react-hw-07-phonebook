@@ -11,11 +11,12 @@ export const ContactList = () => {
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+
   return (
     <List>
       {filteredContacts.map(({ id, name, number }) => {
-        return(<ContactItem key={id} id={id} name={name} number={number} />)
-})}
+        return <ContactItem key={id} id={id} name={name} number={number} />;
+      })}
     </List>
   );
 };

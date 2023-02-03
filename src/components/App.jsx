@@ -13,8 +13,8 @@ export function App() {
 
   useEffect(() => {
     dispatch(fetchContacts());
-  }, [dispatch])
-  
+  }, [dispatch]);
+
   return (
     <Container>
       <TitlePhone>Phonebook</TitlePhone>
@@ -22,7 +22,7 @@ export function App() {
       <TitleContacts>Contacts</TitleContacts>
 
       <Filter />
-      {isLoading&& <h2>Request in progress...</h2>}
+      {isLoading && <b>Request in progress...</b>}
       <ContactList />
     </Container>
   );
