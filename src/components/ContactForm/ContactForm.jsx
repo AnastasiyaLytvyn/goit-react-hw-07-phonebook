@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 import { Button, Form, Input, Label } from './ContactForm.styled';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -19,10 +20,21 @@ export const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (contacts.find(contact => contact.name === name)) {
-      alert(`${name} is already in contacts.`);
+      toast.error(`${name} is already in contacts`, {
+        style: {
+          border: '1px solid #c33838',
+          color: '#c33838',
+          width: '275px',
+          fontSize: '14px',
+        },
+        iconTheme: {
+          primary: '#c33838',
+          secondary: '#FFFAEE',
+        },
+        duration: 3000,
+      });
       return;
     }
-
     dispatch(addContact({ id: nanoid(), name, number }));
     setName('');
     setNumber('');
@@ -54,7 +66,9 @@ export const ContactForm = () => {
           onChange={handleChange}
         />
       </Label>
+
       <Button type="submit">Add contact</Button>
+      <Toaster position="top-right" reverseOrder={false} />
     </Form>
   );
 };

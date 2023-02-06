@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from 'redux/selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
+import { RotatingLines } from 'react-loader-spinner';
 
 export function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,15 @@ export function App() {
       <TitleContacts>Contacts</TitleContacts>
 
       <Filter />
-      {isLoading && <b>Request in progress...</b>}
+      {isLoading && (
+        <RotatingLines
+          strokeColor="grey"
+          strokeWidth="5"
+          animationDuration="0.75"
+          width="26"
+          visible={true}
+        />
+      )}
       <ContactList />
     </Container>
   );
