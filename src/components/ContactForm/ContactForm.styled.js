@@ -18,6 +18,8 @@ export const Input = styled.input`
   padding: 5px;
   border: 1px solid lightgrey;
   border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 
   &:focus,
   &:hover {
@@ -33,12 +35,13 @@ export const Button = styled.button`
   border-radius: 8px;
   color: #fff;
   background-color: lightslategrey;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   cursor: pointer;
   transition: all 0.5s ease-out;
 
   &:hover {
     color: lightslategrey;
     border-color: lightslategrey;
-    background-color: #fff;}
+    background-color: #fff;
+  }
 `;
-
