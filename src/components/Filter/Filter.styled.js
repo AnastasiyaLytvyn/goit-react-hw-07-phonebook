@@ -16,6 +16,7 @@ export const Input = styled.input`
   &:focus,
   &:hover {
     outline: none;
-    border: 1px solid lightseagreen;
+    border: 1px solid lightslategrey;
+    transition: all 0.5s ease-out;
   }
 `;

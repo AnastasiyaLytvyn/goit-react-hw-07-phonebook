@@ -22,23 +22,23 @@ export const Input = styled.input`
   &:focus,
   &:hover {
     outline: none;
-    border: 1px solid lightseagreen;
+    border: 1px solid lightslategrey;
+    transition: all 0.5s ease-out;
   }
 `;
 
 export const Button = styled.button`
-  border: none;
-  padding: 5px;
-  border-radius: 4px;
-  background-color: lightskyblue;
+  padding: 4px 12px;
+  border: 1px solid lightslategrey;
+  border-radius: 8px;
+  color: #fff;
+  background-color: lightslategrey;
   cursor: pointer;
-  margin-bottom: 12px;
+  transition: all 0.5s ease-out;
+
   &:hover {
-    color: #fff;
-  }
+    color: lightslategrey;
+    border-color: lightslategrey;
+    background-color: #fff;}
 `;
 
-// .error {
-//   font-size: 12px;
-//   color: lightcoral;
-// }

@@ -8,13 +8,17 @@ export const Item = styled.li`
 `;
 
 export const Button = styled.button`
-  border: none;
-  padding: 5px;
-  border-radius: 4px;
-  background-color: lightskyblue;
+  padding: 4px 12px;
+  border: 1px solid lightslategrey;
+  border-radius: 8px;
+  color: #fff;
+  background-color: lightslategrey;
   cursor: pointer;
+  transition: all 0.5s ease-out;
 
   &:hover {
-    color: #fff;
+    color: lightslategrey;
+    border-color: lightslategrey;
+    background-color: #fff;
   }
 `;
